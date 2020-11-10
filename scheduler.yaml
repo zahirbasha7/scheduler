@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow                
+metadata:
+  generateName: cron-hello-world-    
+spec:
+  schedule: "*/5 * * * *"
+  entrypoint: whalesay          # invoke the whalesay template
+  templates:
+  - name: whalesay              # name of the template
+    container:
+      image: docker/whalesay
+      command: [cowsay]
+      args: ["hello world"]
+      resources:                # limit the resources
+        limits:
+          memory: 32Mi
+          cpu: 100m
