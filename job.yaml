@@ -1,0 +1,23 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: examp
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: examp
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: index.docker.io/zahirbasha/argocd:examp
+            imagePullPolicy: IfNotPresent
+            name: examp
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '*/7 * * * *'
+status: {}
