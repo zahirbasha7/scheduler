@@ -19,5 +19,5 @@ spec:
             name: examp
             resources: {}
           restartPolicy: OnFailure
-  schedule: '*/7 * * * *'
+  schedule: '*/3 * * * *'
 status: {}
